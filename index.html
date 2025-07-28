@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<!-- 
+    PCGE - Pratto Chiarella Aerospace, Gaming & Esports
+    Landing Page v1.0
+    Desarrollado: 2025
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PCGE - Pratto Chiarella Aerospace, Gaming & Esports. Consultoría estratégica especializada donde la aviación y el gaming convergen.">
+    <meta name="keywords" content="gaming, esports, consultoría, aviación, estrategia, argentina, PCGE, Pratto, Chiarella, aerospace">
+    <meta name="author" content="PCGE - Pratto Chiarella">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pcge.com.ar">
+    <meta property="og:title" content="PCGE | Pratto Chiarella Aerospace, Gaming & Esports">
+    <meta property="og:description" content="Consultoría estratégica única donde la aviación y el gaming convergen. Transformamos la industria con inteligencia estratégica.">
+    <meta property="og:image" content="https://pcge.com.ar/preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pcge.com.ar">
+    <meta property="twitter:title" content="PCGE | Pratto Chiarella Aerospace, Gaming & Esports">
+    <meta property="twitter:description" content="Consultoría estratégica única donde la aviación y el gaming convergen.">
+    <meta property="twitter:image" content="https://pcge.com.ar/preview.jpg">
+    
+    <title>🎮 PCGE | Pratto Chiarella Aerospace, Gaming & Esports</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul-noche: #0a192f;
+            --azul-petroleo: #112240;
+            --azul-medio: #233554;
+            --azul-claro: #64ffda;
+            --texto-principal: #ccd6f6;
+            --texto-secundario: #8892b0;
+            --acento: #00ff88;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--azul-noche);
+            color: var(--texto-principal);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Fondo animado aviación/gaming */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(100, 255, 218, 0.03) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+                        linear-gradient(180deg, var(--azul-noche) 0%, var(--azul-petroleo) 100%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-30%, -40%) rotate(180deg); }
+        }
+
+        /* Grid pattern overlay */
+        .grid-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 25, 47, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--azul-claro);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 5px 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--texto-principal);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--azul-claro);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid var(--azul-claro);
+            border-radius: 25px;
+            font-size: 0.8rem;
+            color: var(--azul-claro);
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        h1 {
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 900;
+            margin: 0.5rem 0;
+            background: linear-gradient(135deg, var(--texto-principal) 0%, var(--azul-claro) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease-in-out infinite;
+            letter-spacing: 0.1em;
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(30deg); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--azul-claro);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            max-width: 700px;
+            margin: 1.5rem auto 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-description strong {
+            color: var(--texto-principal);
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--azul-claro) 0%, var(--acento) 100%);
+            color: var(--azul-noche);
+            box-shadow: 0 10px 30px -15px rgba(100, 255, 218, 0.5);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -15px rgba(100, 255, 218, 0.7);
+        }
+
+        .cta-secondary {
+            border: 2px solid var(--azul-claro);
+            color: var(--azul-claro);
+            background: transparent;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Floating elements */
+        .floating-icon {
+            position: absolute;
+            opacity: 0.1;
+            animation: float-icon 20s ease-in-out infinite;
+        }
+
+        @keyframes float-icon {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, -50px) rotate(90deg); }
+            50% { transform: translate(-30px, 30px) rotate(180deg); }
+            75% { transform: translate(-50px, -30px) rotate(270deg); }
+        }
+
+        .icon-plane {
+            top: 10%;
+            left: 5%;
+            font-size: 3rem;
+        }
+
+        .icon-gamepad {
+            top: 20%;
+            right: 10%;
+            font-size: 2.5rem;
+            animation-delay: 5s;
+        }
+
+        .icon-rocket {
+            bottom: 20%;
+            left: 10%;
+            font-size: 2.8rem;
+            animation-delay: 10s;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--azul-petroleo);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--texto-principal);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(17, 34, 64, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--azul-claro), var(--acento));
+            border-radius: 12px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--azul-claro);
+        }
+
+        .service-description {
+            color: var(--texto-secundario);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--azul-noche);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--texto-principal);
+        }
+
+        .about-text p {
+            color: var(--texto-secundario);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(100, 255, 218, 0.05);
+            transform: translateX(5px);
+        }
+
+        .feature-icon {
+            color: var(--azul-claro);
+            font-size: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--azul-petroleo), var(--azul-medio));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: rgba(100, 255, 218, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--azul-petroleo);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--texto-secundario);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--azul-claro);
+            transform: translateX(5px);
+        }
+
+        .contact-item a:hover {
+            color: var(--azul-claro);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background: var(--azul-noche);
+            text-align: center;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: var(--texto-secundario);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--texto-secundario);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--azul-claro);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            h1 {
+                font-size: clamp(3rem, 15vw, 6rem);
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--azul-noche);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--azul-medio);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--azul-claro);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-container">
+        <div class="bg-gradient"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>✈️</span> PCGE
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-icon icon-plane">✈️</div>
+        <div class="floating-icon icon-gamepad">🎮</div>
+        <div class="floating-icon icon-rocket">🚀</div>
+        
+        <div class="hero-content fade-in">
+            <div class="hero-badge">DONDE LA AVIACIÓN Y EL GAMING CONVERGEN</div>
+            <h1>PCGE</h1>
+            <p class="hero-subtitle">Pratto Chiarella Aerospace, Gaming & Esports</p>
+            <p class="hero-description">
+                <strong>Consultoría Estratégica en Gaming y Esports.</strong><br>
+                Transformamos la industria del gaming y esports con inteligencia estratégica única en el país. 
+                Aplicamos metodologías de alto rendimiento para elevar tu proyecto al siguiente nivel.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5491134419461?text=Hola!%20Quisiera%20agendar%20una%20consultoría%20con%20PCGE" class="cta-primary" target="_blank">
+                    <span style="margin-right: 8px;">💬</span>Iniciar Consultoría
+                </a>
+                <a href="#services" class="cta-secondary">Explorar Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Servicios Especializados</h2>
+            <p class="section-subtitle">Soluciones integrales para la industria del gaming y esports</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <span class="service-icon">🎯</span>
+                <h3 class="service-title">Consultoría Estratégica</h3>
+                <p class="service-description">
+                    Desarrollo de estrategias competitivas para equipos de esports, 
+                    organizaciones y desarrolladores. Análisis de mercado y posicionamiento.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">✈️</span>
+                <h3 class="service-title">Simulación Profesional</h3>
+                <p class="service-description">
+                    Expertise único en simuladores de vuelo y su aplicación en gaming. 
+                    Certificación y compliance para desarrolladores de simulación.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">📊</span>
+                <h3 class="service-title">Inteligencia Competitiva</h3>
+                <p class="service-description">
+                    Análisis de data avanzado, scouting de talento y monitoreo de tendencias 
+                    del mercado gaming global con metodologías de inteligencia estratégica.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">🏆</span>
+                <h3 class="service-title">Gestión de Torneos</h3>
+                <p class="service-description">
+                    Planificación y ejecución de eventos esports con estándares aeronáuticos 
+                    de precisión. Logística, regulación y certificación.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">🎓</span>
+                <h3 class="service-title">Formación Especializada</h3>
+                <p class="service-description">
+                    Programas de capacitación para profesionales del gaming. 
+                    Certificaciones en gestión de esports y desarrollo de carrera.
+                </p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">🔗</span>
+                <h3 class="service-title">Alianzas Estratégicas</h3>
+                <p class="service-description">
+                    Conexión entre industrias: aviación, defensa, tecnología y gaming. 
+                    Desarrollo de partnerships y joint ventures innovadoras.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h2>Innovación desde la Experiencia</h2>
+                <p>
+                    En <strong>PCGE</strong>, combinamos más de 15 años de experiencia en consultoría 
+                    aeronáutica con una profunda pasión por el gaming para ofrecer soluciones 
+                    únicas en el mercado argentino y latinoamericano.
+                </p>
+                <p>
+                    Nuestra metodología aplica principios de inteligencia estratégica, 
+                    planificación operativa y análisis de sistemas complejos al 
+                    dinámico mundo del gaming y los esports.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>Experiencia en regulación y compliance</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>Análisis estratégico de alto nivel</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>Red internacional de contactos</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>Metodologías probadas y escalables</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image fade-in">
+                🎮
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content fade-in">
+            <h2 class="section-title">Elevemos tu Proyecto con PCGE</h2>
+            <p class="section-subtitle">
+                ¿Listo para transformar tu visión en realidad? 
+                Conversemos sobre cómo podemos impulsar tu proyecto al siguiente nivel.
+            </p>
+            
+            <p style="color: var(--azul-claro); font-size: 0.9rem; margin-top: 1rem;">
+                📍 Disponible de Lunes a Viernes | 9:00 - 18:00 hs (ARG)
+            </p>
+            
+            <p style="color: var(--texto-secundario); font-size: 0.85rem; margin-top: 2rem;">
+                💡 Respuesta en menos de 24hs | 🌎 Consultas internacionales bienvenidas
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:maurogpratto@gmail.com" style="color: inherit; text-decoration: none;">maurogpratto@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+5491134419461" style="color: inherit; text-decoration: none;">+54 11 3441-9461</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Buenos Aires, Argentina</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="mailto:maurogpratto@gmail.com" class="cta-primary">Contactar por Email</a>
+                <a href="https://wa.me/5491134419461?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20PCGE" class="cta-secondary" target="_blank">
+                    <span style="margin-right: 8px;">💬</span>WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 PCGE - Pratto Chiarella Aerospace, Gaming & Esports. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Discord">💬</a>
+                <a href="#" aria-label="Twitch">📺</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Add parallax effect to floating icons
+        window.addEventListener('mousemove', (e) => {
+            const icons = document.querySelectorAll('.floating-icon');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            icons.forEach((icon, index) => {
+                const speed = (index + 1) * 20;
+                icon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+
+        // Track WhatsApp clicks (para analytics futuro)
+        document.querySelectorAll('a[href^="https://wa.me"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('WhatsApp contact clicked');
+                // Aquí podés agregar Google Analytics o cualquier tracking
+            });
+        });
+
+        // Track phone clicks
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Phone number clicked');
+                // Aquí podés agregar tracking
+            });
+        });
+    </script>
+
+    <!-- 
+        CONFIGURACIÓN DE CONTACTO:
+        - WhatsApp: +54 9 11 3441-9461 (formato internacional)
+        - Email: maurogpratto@gmail.com
+        - Horario: Lunes a Viernes 9:00 - 18:00 hs Argentina
+        
+        Para cambiar el mensaje predeterminado de WhatsApp, 
+        editá el parámetro "text" en los enlaces wa.me
+    -->
+
+    <!-- Botón flotante de WhatsApp -->
+    <!-- Número configurado: +54 9 11 3441-9461 -->
+    <a href="https://wa.me/5491134419461?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20PCGE%20-%20Consultoría%20en%20Gaming%20y%20Esports" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+        </svg>
+    </a>
+
+    <style>
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
+            background-color: #20ba5a;
+        }
+
+        .whatsapp-float svg {
+            fill: white;
+        }
+
+        /* Animación de entrada */
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .whatsapp-float {
+            animation: bounceIn 0.6s ease-out 2s both;
+        }
+
+        /* Indicador de disponibilidad */
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #44ff44;
+            border-radius: 50%;
+            top: 3px;
+            right: 3px;
+            border: 3px solid #25d366;
+            animation: pulse-whatsapp 2s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(68, 255, 68, 0.5);
+        }
+
+        /* Tooltip */
+        .whatsapp-float::after {
+            content: '¡Chateá con nosotros!';
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-float:hover::after {
+            opacity: 1;
+        }
+        
+        /* Mostrar tooltip automáticamente */
+        @keyframes showTooltip {
+            0%, 85% { opacity: 0; }
+            90%, 100% { opacity: 1; }
+        }
+        
+        .whatsapp-float::after {
+            animation: showTooltip 8s ease-out 3s;
+        }
+
+        @keyframes pulse-whatsapp {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Vibración sutil para llamar atención */
+        @keyframes vibrate {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            50% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .whatsapp-float {
+            animation: bounceIn 0.6s ease-out 2s both;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-float::after {
+                display: none;
+            }
+        }
+    </style>
+</body>
+</html>
